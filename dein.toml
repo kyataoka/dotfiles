@@ -1,0 +1,26 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+
+[[plugins]]
+repo = 'reireias/vim-cheatsheet'
+hook_add = '''
+let g:cheatsheet#cheat_file = '~/dotfiles/vim_cheatseet.md'
+'''
+
+[[plugins]]
+repo = 'Shougo/unite.vim'
+
+[[plugins]]
+repo = 'roxma/nvim-yarp'
+#if = '!has("nvim") && has("timers") && has("python3") && system("pip3 show neovim") !=# ""'
+
+[[plugins]]
+repo = 'roxma/vim-hug-neovim-rpc'
+#if = '!has("nvim") && has("timers") && has("python3") && system("pip3 show neovim") !=# ""'
+
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+#if = '((has("nvim") || has("timers")) && has("python3")) && system("pip3 show neovim") !=# ""'
