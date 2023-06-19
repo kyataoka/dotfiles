@@ -1,0 +1,80 @@
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/cask-versions"
+tap "homebrew/core"
+brew "jpeg-turbo"
+brew "libpng"
+brew "little-cms2"
+brew "webp"
+brew "openssl@3"
+brew "asdf"
+brew "glib"
+brew "cocoapods"
+brew "unbound"
+brew "gnutls"
+brew "tesseract"
+brew "ffmpeg"
+brew "open-mpi"
+brew "pkg-config"
+brew "guile"
+brew "jq"
+brew "librsvg"
+brew "mas"
+brew "nghttp2"
+brew "node"
+brew "python@3.9"
+brew "ruby"
+brew "sl"
+brew "tmux"
+brew "tree"
+brew "vips"
+brew "wget"
+brew "zlib"
+cask "1password"
+cask "adoptopenjdk8"
+cask "alfred4"
+cask "android-file-transfer"
+cask "android-platform-tools"
+cask "android-sdk"
+cask "appcleaner"
+cask "cinebench"
+cask "deepl"
+cask "devtoys"
+cask "discord"
+cask "docker"
+cask "elgato-stream-deck"
+cask "eul"
+cask "firefox"
+cask "fujitsu-scansnap-home"
+cask "geekbench"
+cask "gimp"
+cask "google-chrome"
+cask "minecraft"
+cask "parallels"
+cask "raspberry-pi-imager"
+cask "scroll-reverser"
+cask "slack"
+cask "sony-ps-remote-play"
+cask "steam"
+cask "unity-hub"
+cask "visual-studio-code"
+cask "vlc"
+cask "warp"
+cask "zoom"
+mas "Apple Configurator", id: 1037126344
+mas "CotEditor", id: 1024640650
+mas "Developer", id: 640199958
+mas "Disk Speed Test", id: 425264550
+mas "GoodNotes", id: 1444383602
+mas "Keynote", id: 409183694
+mas "Kindle", id: 405399194
+mas "LanScan", id: 472226235
+mas "LINE", id: 539883307
+mas "Logic Pro", id: 634148309
+mas "Microsoft Remote Desktop", id: 1295203466
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
+mas "Playgrounds", id: 1496833156
+mas "Slack", id: 803453959
+mas "The Unarchiver", id: 425424353
+mas "Xcode", id: 497799835
