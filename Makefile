@@ -1,23 +1,23 @@
+install:
+  init link brew asdf system_config
+
 init:
-	sh bin/init.sh
+	zsh bin/init.sh
 
 link:
-	sh bin/link.sh
+	zsh bin/link.sh
 
 brew:
-	sh bin/brew.sh
+	zsh bin/brew.sh
 
 asdf:
-	sh bin/asdf.sh
+	zsh bin/asdf.sh
 
 system_config:
-	sh bin/system_config.sh
+	zsh bin/system_config.sh
 
 uninstall:
-	sh bin/uninstall.sh
+	zsh bin/uninstall.sh
 
 update_brewfile:
-	sh bin/update_brewfile.sh
-
-test:
-	sh bin/test.sh
+	zsh bin/update_brewfile.sh

@@ -2,7 +2,13 @@
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
-brew bundle dump --formula --cask --tap --mas --force --file="$SCRIPT_DIR/../backup/Brewfile_backup_$(date +%Y%m%d%H%M%S)"
+brew bundle dump\
+	--formula \
+	--cask \
+	--tap \
+	--mas \
+	--force \
+	--file="$SCRIPT_DIR/../backup/Brewfile_backup_$(date +%Y%m%d%H%M%S)"
 
 rm -rf ~/.tmux.conf
 rm -rf ~/.vimrc
@@ -25,3 +31,11 @@ sudo rm -rf /usr/local/Frameworks/\
 	/usr/local/sbin/\
 	/usr/local/share/\
 	/usr/local/var/
+
+rm -rf ~/.zprezto\
+	~/.zlogin\
+	~/.zlogout\
+	~/.zpreztorc\
+	~/.zprofile\
+	~/.zshenv\
+	~/.zshrc
