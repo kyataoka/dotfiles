@@ -12,6 +12,9 @@ brew:
 asdf:
 	bin/asdf.sh
 
+node:
+	bin/node.sh
+
 system_config:
 	bin/system_config.sh
 
