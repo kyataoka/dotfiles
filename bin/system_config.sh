@@ -4,17 +4,16 @@ TMP_DIR="$(cd "$(dirname "$0")" && pwd)/../tmp"
 
 mkdir -p "$TMP_DIR"
 
-#change default browser
-git clone https://github.com/kerma/defaultbrowser.git $TMP_DIR/defaultbrowser
+# Change default browser
+git clone https://github.com/kerma/defaultbrowser.git "$TMP_DIR/defaultbrowser"
 cd "$TMP_DIR/defaultbrowser"
 make
 make install
 defaultbrowser chrome
 make uninstall
-cd $ROOT_DIR
+cd "$ROOT_DIR"
 
-# enable key press and hold
-sudo defaults write -g ApplePressAndHoldEnabled -bool true
+# Enable key press and hold
+defaults write -g ApplePressAndHoldEnabled -bool true
 
-
-rm -rf $TMP_DIR
+rm -rf "$TMP_DIR"
