@@ -23,4 +23,8 @@ if ! command -v brew &> /dev/null; then
   (echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> "${ZDOTDIR:-$HOME}/.zprofile"
 fi
 
+# Set up Homebrew environment
 eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# Source the updated zsh configuration
+source ~/.zshrc
