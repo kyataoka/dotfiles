@@ -21,6 +21,7 @@ brew "librsvg"
 brew "mas"
 brew "neofetch"
 brew "nghttp2"
+brew "openjdk"
 brew "python@3.9"
 brew "reattach-to-user-namespace"
 brew "sl"
@@ -31,7 +32,6 @@ brew "wget"
 brew "zlib"
 cask "1password"
 cask "1password-cli"
-cask "adoptopenjdk8"
 cask "alfred4"
 cask "android-file-transfer"
 cask "android-platform-tools"
@@ -87,6 +87,7 @@ mas "Logic Pro", id: 634148309
 mas "Microsoft Remote Desktop", id: 1295203466
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
+mas "Pictura", id: 6451364124
 mas "Playgrounds", id: 1496833156
 mas "RunCat", id: 1429033973
 mas "SingleFile for Safari", id: 6444322545
