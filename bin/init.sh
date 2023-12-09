@@ -2,6 +2,11 @@
 
 xcode-select --install
 
+# Install rosetta2
+if [ "$(uname -m)" = "arm64" ]; then
+  softwareupdate --install-rosetta --agree-to-license
+fi
+
 # Install Prezto
 git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 setopt EXTENDED_GLOB
