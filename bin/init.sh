@@ -2,9 +2,6 @@
 
 xcode-select --install
 
-# enable key press and hold
-sudo defaults write -g ApplePressAndHoldEnabled -bool true
-
 # Install Prezto
 git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 setopt EXTENDED_GLOB
@@ -14,3 +11,5 @@ done
 
 # Install Homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+(echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> /Users/kataokahiroki/.zprofile
+eval "$(/opt/homebrew/bin/brew shellenv)"

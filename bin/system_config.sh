@@ -13,6 +13,8 @@ defaultbrowser chrome
 make uninstall
 cd $ROOT_DIR
 
+# enable key press and hold
 sudo defaults write -g ApplePressAndHoldEnabled -bool true
+
 
 rm -rf $TMP_DIR
