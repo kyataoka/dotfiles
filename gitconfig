@@ -1,0 +1,9 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+	name = kataokahiroki
+	email = kyataoka.deve@gmail.com
+[core]
+    editor = /usr/bin/vim
+[init]
+	defaultBranch = main
