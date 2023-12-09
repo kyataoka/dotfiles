@@ -15,6 +15,7 @@ fi
 #export PATH="$PATH:$HOME/development/flutter/bin"
 #export PATH="$PATH:$HOME/Library/Android/sdk/platform-tools/"
 
+export PATH="/opt/homebrew/bin:$PATH"
 export PATH="$HOME/.yarn/bin:$PATH"
 export PKG_CONFIG_PATH="/opt/homebrew/opt/zlib/lib/pkgconfig"
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home"
