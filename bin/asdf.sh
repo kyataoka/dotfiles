@@ -5,8 +5,8 @@ set -e
 sudo xcodebuild -license
 
 asdf plugin add nodejs
-asdf install nodejs lts
-asdf global nodejs lts
+asdf install nodejs $(asdf latest nodejs)
+asdf global nodejs $(asdf latest nodejs)
 
 asdf plugin add flutter
 asdf install flutter $(asdf latest flutter)
