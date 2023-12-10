@@ -8,9 +8,9 @@ mkdir -p "$TMP_DIR"
 git clone https://github.com/kerma/defaultbrowser.git "$TMP_DIR/defaultbrowser"
 cd "$TMP_DIR/defaultbrowser"
 make
-make install
+sudo make install
 defaultbrowser chrome
-make uninstall
+sudo make uninstall
 cd "$ROOT_DIR"
 
 # Enable key press and hold
