@@ -3,7 +3,14 @@
 # Please adapt and uncomment the following lines:
 	name = kataokahiroki
 	email = kyataoka.deve@gmail.com
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDAwqfmStRMP0fbe9taivWOHYBPV2Pcg5jvFaOZMvRkO
 [core]
     editor = /usr/bin/vim
 [init]
 	defaultBranch = main
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+[commit]
+	gpgsign = true
