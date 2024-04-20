@@ -1,22 +1,34 @@
 #!/bin/zsh
 ROOT_DIR="$(cd "$(dirname "$0")" && pwd)/.."
-TMP_DIR="$(cd "$(dirname "$0")" && pwd)/../tmp"
 
-mkdir -p "$TMP_DIR"
-
+###############################################################################
 # Change default browser
-git clone https://github.com/kerma/defaultbrowser.git "$TMP_DIR/defaultbrowser"
-cd "$TMP_DIR/defaultbrowser"
-make
-sudo make install
-defaultbrowser chrome
-sudo make uninstall
-cd "$ROOT_DIR"
+###############################################################################
+
+# if defaultbrowser is not installed, install it. and uninstall after use
+if ! command -v defaultbrowser &> /dev/null; then
+  IS_DEFAULTBROWSER_INSTALLED=false
+  brew install defaultbrowser
+fi
 
 # Enable key press and hold
 defaults write -g ApplePressAndHoldEnabled -bool true
 
+# uninstall defaultbrowser if it was not installed
+if [ "$IS_DEFAULTBROWSER_INSTALLED" = false ]; then
+  brew uninstall defaultbrowser
+fi
+
+###############################################################################
 # Setup Dock
+###############################################################################
+
+# if dockutil is not installed, install it. and uninstall after use
+if ! command -v dockutil &> /dev/null; then
+  IS_DOCKUTIL_INSTALLED=false
+  brew install dockutil
+fi
+
 dockutil --remove all --no-restart
 # Add applications to dock
 applications=(
@@ -58,11 +70,15 @@ for app in "${applications[@]}"; do
     position=$((position + 1))
   fi
 done
+
 # Add directories to dock
 dockutil --add "$HOME/Downloads" --position 1 --section others --view fan --display stack --sort dateadded --no-restart > /dev/null
 dockutil --add "$HOME/Documents/screenshot" --position 2 --section others --view grid --display stack --sort dateadded --no-restart > /dev/null
-# Restart Dock
-killall Dock
+
+# Uninstall dockutil if it was not installed
+if [ "$IS_DOCKUTIL_INSTALLED" = false ]; then
+  brew uninstall dockutil
+fi
 
 # Set dock size
 defaults write com.apple.dock tilesize -int 36
@@ -72,5 +88,3 @@ defaults write com.apple.dock show-recents -bool false
 
 # Restart Dock
 killall Dock
-
-rm -rf "$TMP_DIR"
