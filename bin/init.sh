@@ -1,5 +1,7 @@
 #!/bin/zsh
 
+sudo -v
+
 # Install Xcode command line tools
 xcode-select --install
 

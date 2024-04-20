@@ -105,7 +105,7 @@ killall Dock
 ###############################################################################
 
 # Set beep sound to Funky
-defaults write NSGlobalDomain com.apple.sound.beep.sound -string "/System/Library/Sounds/Funky.aiff"
+defaults write -g com.apple.sound.beep.sound -string "/System/Library/Sounds/Funky.aiff"
 
 ###############################################################################
 # Sharing settings
@@ -137,10 +137,10 @@ sudo launchctl load -w /System/Library/LaunchDaemons/ssh.plist
 ###############################################################################
 
 # Set key repeat rate
-defaults write NSGlobalDomain KeyRepeat -float 1.8
+defaults write -g KeyRepeat -float 1.8
 
 # Set initial key repeat delay
-defaults write NSGlobalDomain InitialKeyRepeat -int 15
+defaults write -g InitialKeyRepeat -int 15
 
 # Set press and hold to OFF
 defaults write -g ApplePressAndHoldEnabled -bool false
@@ -150,7 +150,7 @@ defaults write -g ApplePressAndHoldEnabled -bool false
 ###############################################################################
 
 # Set speed of trackpad
-defaults write NSGlobalDomain com.apple.trackpad.scaling -float 2.5
+defaults write -g com.apple.trackpad.scaling -float 2.5
 
 # Set app expose to ON
 defaults write com.apple.dock showAppExposeGestureEnabled -bool true
@@ -167,7 +167,7 @@ defaults write -g com.apple.mouse.scaling -float 2.5
 ###############################################################################
 
 # Set Finder to show all extensions
-defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+defaults write -g AppleShowAllExtensions -bool true
 
 # Set Finder to show drives on desktop
 defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
@@ -205,6 +205,3 @@ defaults write com.apple.screencapture location -string "$HOME/Documents/screens
 
 # Set install application updates from the App Store to ON
 sudo defaults write /Library/Preferences/com.apple.commerce AutoUpdate -bool true
-
-# Sync desktop and documents to iCloud
-defaults write "com.apple.CloudDocs.iCloudDrive
