@@ -9,4 +9,4 @@
 	defaultBranch = main
 
 [include]
-	path = ~/dotfiles/git/gitconfig_darwin
+	path = ~/dotfiles/files/git/gitconfig_darwin
