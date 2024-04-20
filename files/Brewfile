@@ -44,8 +44,6 @@ cask "desmume"
 cask "devtoys"
 cask "discord"
 cask "docker"
-cask "elgato-stream-deck"
-cask "eul"
 cask "firefox"
 cask "fujitsu-scansnap-home"
 cask "geekbench"
@@ -82,6 +80,7 @@ mas "CotEditor", id: 1024640650
 mas "Developer", id: 640199958
 mas "Disk Speed Test", id: 425264550
 mas "Goodnotes", id: 1444383602
+mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
 mas "Kindle", id: 302584613
 mas "LanScan", id: 472226235
