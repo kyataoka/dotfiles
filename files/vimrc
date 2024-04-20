@@ -12,8 +12,8 @@ execute 'set runtimepath^=' . s:dein_repo_dir
 
 if dein#load_state(s:dein_dir)
     call dein#begin(s:dein_dir)
-    let s:toml= expand('~/dotfiles/dein.toml')
-    let s:toml_lazy = expand('~/dotfiles/dein_lazy.toml')
+    let s:toml= expand('~/dotfiles/files/dein.toml')
+    let s:toml_lazy = expand('~/dotfiles/files/dein_lazy.toml')
     call dein#load_toml(s:toml, {'lazy': 0})
     call dein#load_toml(s:toml_lazy, {'lazy': 1})
 
