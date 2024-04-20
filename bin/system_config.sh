@@ -1,5 +1,6 @@
 #!/bin/zsh
 ROOT_DIR="$(cd "$(dirname "$0")" && pwd)/.."
+CONFIG_FILE="$ROOT_DIR"/config.ini
 
 # Permission
 sudo -v
@@ -109,6 +110,18 @@ defaults write NSGlobalDomain com.apple.sound.beep.sound -string "/System/Librar
 ###############################################################################
 # Sharing settings
 ###############################################################################
+
+# Set computer name
+computer_name=$(awk -F' *= *' '/^\[name\]$/,/^\[/{if ($1=="computer_name") print $2}' $CONFIG_FILE)
+sudo scutil --set ComputerName "$computer_name"
+
+# Set hostname
+hostname=$(awk -F' *= *' '/^\[name\]$/,/^\[/{if ($1=="hostname") print $2}' $CONFIG_FILE)
+sudo scutil --set HostName "$hostname"
+
+# Set local hostname
+local_hostname=$(awk -F' *= *' '/^\[name\]$/,/^\[/{if ($1=="local_hostname") print $2}' $CONFIG_FILE)
+sudo scutil --set LocalHostName "$local_hostname"
 
 # Set file sharing to ON
 sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.AppleFileServer.plist

@@ -1,1 +1,4 @@
-[common]
+[name]
+computer_name = MyMac
+hostname = MyMac
+local_hostname = MyMac
