@@ -9,6 +9,8 @@ ROOT_DIR="$(cd "$(dirname "$0")" && pwd)/.."
 if ! command -v defaultbrowser &> /dev/null; then
   IS_DEFAULTBROWSER_INSTALLED=false
   brew install defaultbrowser
+else
+  IS_DEFAULTBROWSER_INSTALLED=true
 fi
 
 # Enable key press and hold
@@ -27,6 +29,8 @@ fi
 if ! command -v dockutil &> /dev/null; then
   IS_DOCKUTIL_INSTALLED=false
   brew install dockutil
+else
+  IS_DOCKUTIL_INSTALLED=true
 fi
 
 dockutil --remove all --no-restart
