@@ -25,6 +25,3 @@ fi
 
 # Set up Homebrew environment
 eval "$(/opt/homebrew/bin/brew shellenv)"
-
-# Source the updated zsh configuration
-source ~/.zshrc

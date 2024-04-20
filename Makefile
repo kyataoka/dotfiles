@@ -15,21 +15,27 @@ install: $(COMMON_CONFIG)
 
 init:
 	bin/init.sh
+	@source ~/.zshrc
 
 link:
 	bin/link.sh
+	@source ~/.zshrc
 
 brew:
 	bin/brew.sh
+	@source ~/.zshrc
 
 asdf:
 	bin/asdf.sh
+	@source ~/.zshrc
 
 node:
 	bin/node.sh
+	@source ~/.zshrc
 
 system_config: $(COMMON_CONFIG)
 	bin/system_config.sh
+	@source ~/.zshrc
 
 uninstall:
 	bin/uninstall.sh
