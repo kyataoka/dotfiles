@@ -1,4 +1,17 @@
-install: init link brew asdf system_config
+COMMON_CONFIG = config.ini
+
+$(COMMON_CONFIG):
+	@echo "Error: $(COMMON_CONFIG) not found. Please create it from $(COMMON_CONFIG).example."
+	@exit 1
+
+.PHONY: install init link brew asdf node system_config uninstall update_brewfile
+
+install: $(COMMON_CONFIG)
+	init
+	link
+	brew
+	asdf
+	system_config
 
 init:
 	bin/init.sh
@@ -15,7 +28,7 @@ asdf:
 node:
 	bin/node.sh
 
-system_config:
+system_config: $(COMMON_CONFIG)
 	bin/system_config.sh
 
 uninstall:
