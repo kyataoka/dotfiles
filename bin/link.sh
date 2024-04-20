@@ -7,4 +7,4 @@ ln -sf "$DOTFILES_DIR"/vimrc ~/.vimrc
 ln -sf "$DOTFILES_DIR"/tmux.conf ~/.tmux.conf
 ln -sf "$DOTFILES_DIR"/zshrc ~/.zshrc
 ln -sf "$DOTFILES_DIR"/zprezto ~/.zprezto
-ln -sf "$DOTFILES_DIR"/gitconfig ~/.gitconfig
+ln -sf "$DOTFILES_DIR"/git/gitconfig ~/.gitconfig
