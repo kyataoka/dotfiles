@@ -3,6 +3,9 @@
 # Install Xcode command line tools
 xcode-select --install
 
+# Accept Xcode license with agreement
+sudo xcodebuild -license accept
+
 # Install Rosetta 2 for Apple Silicon
 if [ "$(uname -m)" = "arm64" ]; then
   softwareupdate --install-rosetta --agree-to-license
