@@ -1,6 +1,9 @@
 #!/bin/zsh
 ROOT_DIR="$(cd "$(dirname "$0")" && pwd)/.."
 
+# Permission
+sudo -v
+
 ###############################################################################
 # Change default browser
 ###############################################################################
@@ -13,8 +16,8 @@ else
   IS_DEFAULTBROWSER_INSTALLED=true
 fi
 
-# Enable key press and hold
-defaults write -g ApplePressAndHoldEnabled -bool true
+# Set default browser to chrome
+defaultbrowser chrome
 
 # uninstall defaultbrowser if it was not installed
 if [ "$IS_DEFAULTBROWSER_INSTALLED" = false ]; then
@@ -22,7 +25,7 @@ if [ "$IS_DEFAULTBROWSER_INSTALLED" = false ]; then
 fi
 
 ###############################################################################
-# Setup Dock
+# Dock settings
 ###############################################################################
 
 # if dockutil is not installed, install it. and uninstall after use
@@ -90,5 +93,105 @@ defaults write com.apple.dock tilesize -int 36
 # Hide App Suggestions
 defaults write com.apple.dock show-recents -bool false
 
+# Disable auto rearrange spaces based on most recent use
+defaults write com.apple.dock mru-spaces -bool false
+
 # Restart Dock
 killall Dock
+
+###############################################################################
+# Sound settings
+###############################################################################
+
+# Set beep sound to Funky
+defaults write NSGlobalDomain com.apple.sound.beep.sound -string "/System/Library/Sounds/Funky.aiff"
+
+###############################################################################
+# Sharing settings
+###############################################################################
+
+# Set file sharing to ON
+sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.AppleFileServer.plist
+
+# Set screen sharing to ON
+sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.screensharing.plist
+
+# Set remote login to ON
+sudo launchctl load -w /System/Library/LaunchDaemons/ssh.plist
+
+###############################################################################
+# Keyboard settings
+###############################################################################
+
+# Set key repeat rate
+defaults write NSGlobalDomain KeyRepeat -float 1.8
+
+# Set initial key repeat delay
+defaults write NSGlobalDomain InitialKeyRepeat -int 15
+
+# Set press and hold to OFF
+defaults write -g ApplePressAndHoldEnabled -bool false
+
+###############################################################################
+# Trackpad settings
+###############################################################################
+
+# Set speed of trackpad
+defaults write NSGlobalDomain com.apple.trackpad.scaling -float 2.5
+
+# Set app expose to ON
+defaults write com.apple.dock showAppExposeGestureEnabled -bool true
+
+###############################################################################
+# Mouse settings
+###############################################################################
+
+# Set speed of mouse
+defaults write -g com.apple.mouse.scaling -float 2.5
+
+###############################################################################
+# Finder settings
+###############################################################################
+
+# Set Finder to show all extensions
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
+# Set Finder to show drives on desktop
+defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
+
+# Set Finder to show removable media on desktop
+defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
+
+# Set Finder to show mounted servers on desktop
+defaults write com.apple.finder ShowMountedServersOnDesktop -bool true
+
+###############################################################################
+# Sleep settings
+###############################################################################
+
+# Set computer sleep to never
+sudo pmset -a sleep 0
+
+# Set screen saver to never start
+defaults -currentHost write com.apple.screensaver idleTime -int 0
+
+# Set display sleep to never
+sudo pmset -a displaysleep 0
+
+###############################################################################
+# Other settings
+###############################################################################
+
+# Set DS_Store to OFF
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
+
+# Set screenshot location
+mkdir -p "$HOME/Documents/screenshot"
+defaults write com.apple.screencapture location -string "$HOME/Documents/screenshot"
+
+# Set install application updates from the App Store to ON
+sudo defaults write /Library/Preferences/com.apple.commerce AutoUpdate -bool true
+
+# Sync desktop and documents to iCloud
+defaults write "com.apple.CloudDocs.iCloudDrive
