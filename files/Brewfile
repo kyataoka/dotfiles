@@ -27,6 +27,7 @@ brew "tmux"
 brew "tree"
 brew "vips"
 brew "wget"
+brew "xcodes"
 brew "zlib"
 cask "1password"
 cask "1password-cli"
@@ -39,6 +40,7 @@ cask "brave-browser"
 cask "cinebench"
 cask "cyberduck"
 cask "deepl"
+cask "desmume"
 cask "devtoys"
 cask "discord"
 cask "docker"
@@ -52,6 +54,7 @@ cask "google-chrome"
 cask "keyboardcleantool"
 cask "minecraft"
 cask "monitorcontrol"
+cask "mysqlworkbench"
 cask "ngrok"
 cask "parallels"
 cask "raspberry-pi-imager"
@@ -70,6 +73,7 @@ cask "visual-studio-code"
 cask "vlc"
 cask "warp"
 cask "whisky"
+cask "xcodes"
 cask "zoom"
 mas "1Password for Safari", id: 1569813296
 mas "Amazing AI", id: 1660147028
@@ -83,6 +87,7 @@ mas "Kindle", id: 302584613
 mas "LanScan", id: 472226235
 mas "LINE", id: 539883307
 mas "Logic Pro", id: 634148309
+mas "Make It Spatial", id: 6477729396
 mas "Microsoft Remote Desktop", id: 1295203466
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
@@ -92,4 +97,5 @@ mas "RunCat", id: 1429033973
 mas "SingleFile for Safari", id: 6444322545
 mas "Slack", id: 803453959
 mas "The Unarchiver", id: 425424353
+mas "Upsies", id: 6475957299
 mas "Xcode", id: 497799835
