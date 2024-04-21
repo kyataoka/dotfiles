@@ -112,15 +112,15 @@ defaults write -g com.apple.sound.beep.sound -string "/System/Library/Sounds/Fun
 ###############################################################################
 
 # Set computer name
-computer_name=$(awk -F' *= *' '/^\[name\]$/,/^\[/{if ($1=="computer_name") print $2}' $CONFIG_FILE)
+computer_name=$(awk -F '=' '/^\[name\]/{f=1} f==1&&/^computer_name/{print $2;f=0}' $CONFIG_FILE)
 sudo scutil --set ComputerName "$computer_name"
 
 # Set hostname
-hostname=$(awk -F' *= *' '/^\[name\]$/,/^\[/{if ($1=="hostname") print $2}' $CONFIG_FILE)
+hostname=$(awk -F '=' '/^\[name\]/{f=1} f==1&&/^hostname/{print $2;f=0}' $CONFIG_FILE)
 sudo scutil --set HostName "$hostname"
 
 # Set local hostname
-local_hostname=$(awk -F' *= *' '/^\[name\]$/,/^\[/{if ($1=="local_hostname") print $2}' $CONFIG_FILE)
+local_hostname=$(awk -F '=' '/^\[name\]/{f=1} f==1&&/^local_hostname/{print $2;f=0}' $CONFIG_FILE)
 sudo scutil --set LocalHostName "$local_hostname"
 
 # Set file sharing to ON
