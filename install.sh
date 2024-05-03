@@ -10,6 +10,10 @@ run_script() {
   fi
 }
 
+# Check if sudo is available
+sudo -v
+[[ $? -ne 0 ]] && exit 1
+
 # Start sudo keep-alive in the background
 while true; do
   sudo -v
