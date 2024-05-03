@@ -1,5 +1,3 @@
-[password]
-root_password = password
 [name]
 computer_name = MyMac
 hostname = MyMac

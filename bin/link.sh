@@ -1,5 +1,4 @@
 #!/bin/zsh
-
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 DOTFILES_DIR="$(cd "$SCRIPT_DIR"/.. && pwd)"
 
