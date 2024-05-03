@@ -3,7 +3,7 @@ ROOT_DIR="$(cd "$(dirname "$0")" && pwd)/.."
 CONFIG_FILE="$ROOT_DIR"/config.ini
 
 # Permission
-root_password=$(awk -F '=' '/^\[password\]/{f=1} f==1&&/^root_password/{gsub(/"/, "", $2); print $2; f=0}' $CONFIG_FILE)
+root_password=$(awk -F ' = ' '/^\[password\]/{f=1} f==1&&/^root_password/{gsub(/"/, "", $2); print $2; f=0}' $CONFIG_FILE)
 echo $root_password | sudo -Sv
 
 ###############################################################################
@@ -113,15 +113,15 @@ defaults write -g com.apple.sound.beep.sound -string "/System/Library/Sounds/Fun
 ###############################################################################
 
 # Set computer name
-computer_name=$(awk -F '=' '/^\[name\]/{f=1} f==1&&/^computer_name/{gsub(/"/, "", $2); print $2; f=0}' $CONFIG_FILE)
+computer_name=$(awk -F ' = ' '/^\[name\]/{f=1} f==1&&/^computer_name/{gsub(/"/, "", $2); print $2; f=0}' $CONFIG_FILE)
 sudo scutil --set ComputerName "$computer_name"
 
 # Set hostname
-hostname=$(awk -F '=' '/^\[name\]/{f=1} f==1&&/^hostname/{gsub(/"/, "", $2); print $2; f=0}' $CONFIG_FILE)
+hostname=$(awk -F ' = ' '/^\[name\]/{f=1} f==1&&/^hostname/{gsub(/"/, "", $2); print $2; f=0}' $CONFIG_FILE)
 sudo scutil --set HostName "$hostname"
 
 # Set local hostname
-local_hostname=$(awk -F '=' '/^\[name\]/{f=1} f==1&&/^local_hostname/{gsub(/"/, "", $2); print $2; f=0}' $CONFIG_FILE)
+local_hostname=$(awk -F ' = ' '/^\[name\]/{f=1} f==1&&/^local_hostname/{gsub(/"/, "", $2); print $2; f=0}' $CONFIG_FILE)
 sudo scutil --set LocalHostName "$local_hostname"
 
 # Set file sharing to ON
