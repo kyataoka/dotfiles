@@ -1,5 +1,7 @@
 #!/bin/zsh
 
+source ~/.zshrc
+
 sudo -v
 
 set -e
