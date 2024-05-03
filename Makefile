@@ -4,42 +4,33 @@ $(COMMON_CONFIG):
 	@echo "Error: $(COMMON_CONFIG) not found. Please create it from $(COMMON_CONFIG).example."
 	@exit 1
 
-.PHONY: install init link brew asdf node system_config uninstall update_brewfile test
+.PHONY: install config init link brew asdf node system_config uninstall update_brewfile test
 
-install: $(COMMON_CONFIG)
-	config
-	init
-	link
-	brew
-	asdf
-	system_config
+install: config init link brew asdf system_config
 
 config:
-	bin/config.sh
+	@bin/config.sh
 
-init:
-	bin/init.sh
+init: $(COMMON_CONFIG)
+	@bin/init.sh
 
-link:
-	bin/link.sh
+link: $(COMMON_CONFIG)
+	@bin/link.sh
 
-brew:
-	bin/brew.sh
+brew: $(COMMON_CONFIG)
+	@bin/brew.sh
 
-asdf:
-	bin/asdf.sh
+asdf: $(COMMON_CONFIG)
+	@bin/asdf.sh
 
-node:
-	bin/node.sh
+node: $(COMMON_CONFIG)
+	@bin/node.sh
 
 system_config: $(COMMON_CONFIG)
-	bin/system_config.sh
+	@bin/system_config.sh
 
 uninstall:
-	bin/uninstall.sh
+	@bin/uninstall.sh
 
 update_brewfile:
-	bin/update_brewfile.sh
-
-test:
-	bin/test.sh
+	@bin/update_brewfile.sh
