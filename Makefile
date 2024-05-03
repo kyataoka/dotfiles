@@ -7,11 +7,15 @@ $(COMMON_CONFIG):
 .PHONY: install init link brew asdf node system_config uninstall update_brewfile test
 
 install: $(COMMON_CONFIG)
+	config
 	init
 	link
 	brew
 	asdf
 	system_config
+
+config:
+	bin/config.sh
 
 init:
 	bin/init.sh
