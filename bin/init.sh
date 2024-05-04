@@ -1,9 +1,11 @@
 #!/bin/zsh
+set -e
+
 ROOT_DIR="$(cd "$(dirname "$0")" && pwd)/.."
 CONFIG_FILE="$ROOT_DIR"/config.ini
 
 # Install Xcode command line tools
-xcode-select --install
+xcode-select --install || true
 
 # Accept Xcode license with agreement
 sudo xcodebuild -license accept

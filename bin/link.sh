@@ -1,8 +1,10 @@
 #!/bin/zsh
+set -e
+
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 DOTFILES_DIR="$(cd "$SCRIPT_DIR"/.. && pwd)"
 
-source ~/.zshrc
+source ~/.zshrc || true
 
 ln -sf "$DOTFILES_DIR"/files/vimrc ~/.vimrc
 ln -sf "$DOTFILES_DIR"/files/tmux.conf ~/.tmux.conf

@@ -4,7 +4,7 @@ set -e
 ROOT_DIR="$(cd "$(dirname "$0")" && pwd)/.."
 CONFIG_FILE="$ROOT_DIR"/config.ini
 
-source ~/.zshrc
+source ~/.zshrc || true
 
 # Install nodejs
 asdf plugin add nodejs
