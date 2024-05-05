@@ -8,7 +8,7 @@ CONFIG_FILE="$ROOT_DIR"/config.ini
 xcode-select --install || true
 
 # Accept Xcode license with agreement
-sudo xcodebuild -license accept
+sudo xcodebuild -license accept || true
 
 # Install Rosetta 2 for Apple Silicon
 if [ "$(uname -m)" = "arm64" ]; then

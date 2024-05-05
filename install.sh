@@ -6,6 +6,8 @@ run_script() {
   local script_path="$1"
   if ! "$ROOT_DIR/bin/$script_path"; then
     echo "Failed to run $script_path"
+    # Kill the sudo keep-alive process
+    kill "$SUDO_PID"
     exit 1
   fi
 }
@@ -34,8 +36,15 @@ scripts=(
 
 # Run each script in the list
 for script in "${scripts[@]}"; do
-  run_script "$script"
+  caffeinate run_script "$script"
 done
 
 # Kill the sudo keep-alive process
 kill "$SUDO_PID"
+
+# Ask user to restart the system
+read -q "REPLY?Do you want to restart the system now? (y/n) "
+echo
+if [[ "$REPLY" = "y" ]]; then
+  sudo reboot
+fi
