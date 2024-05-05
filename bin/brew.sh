@@ -9,3 +9,6 @@ source ~/.zshrc || true
 
 brew update
 brew bundle --file="$ROOT_DIR"/files/Brewfile
+
+# Accept Xcode license with agreement
+sudo xcodebuild -license accept || true

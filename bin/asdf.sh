@@ -6,9 +6,6 @@ CONFIG_FILE="$ROOT_DIR"/config.ini
 
 source ~/.zshrc || true
 
-# Accept Xcode license with agreement
-sudo xcodebuild -license accept || true
-
 # Install nodejs
 asdf plugin add nodejs
 asdf install nodejs $(asdf latest nodejs)
