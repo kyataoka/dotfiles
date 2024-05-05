@@ -9,7 +9,7 @@ new_config_file="$ROOT_DIR/config.ini"
 # If the configuration file exists, ask the user if they want to overwrite it
 if [ -f "$new_config_file" ]; then
   echo "Configuration file already exists. Do you want to overwrite it? (y/n)"
-  read "response?Enter your response(Y/n): "
+  read "response?Enter your response(y/n): "
   if [ "$response" != "y" ]; then
     echo "Exiting..."
     exit 0
@@ -24,10 +24,17 @@ read "computer_name?Enter computer_name: "
 # Convert to lowercase, replace spaces with hyphens, and remove apostrophes
 default_hostname=$(echo "$computer_name" | tr '[:upper:]' '[:lower:]' | tr ' ' '-' | tr -d "'")
 
-hostname=$default_hostname
-read "hostname?Enter hostname (default: $hostname): "
-local_hostname=$default_hostname
-read "local_hostname?Enter local_hostname (default: $local_hostname): "
+read "hostname?Enter hostname (default: $default_hostname): "
+if [ -z "$hostname" ]; then
+  hostname=$default_hostname
+else
+  # Update the default hostname if a new hostname is provided
+  default_hostname=$hostname
+fi
+read "local_hostname?Enter local_hostname (default: $default_hostname): "
+if [ -z "$local_hostname" ]; then
+  local_hostname=$default_hostname
+fi
 
 # 新しい設定ファイルを作成し、設定を書き込む
 {
