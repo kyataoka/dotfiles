@@ -36,7 +36,7 @@ scripts=(
 
 # Run each script in the list
 for script in "${scripts[@]}"; do
-  caffeinate zsh -c "run_script '$script'"
+  run_script '$script'
 done
 
 # Ask user to restart the system
