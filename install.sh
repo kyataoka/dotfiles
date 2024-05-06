@@ -20,8 +20,8 @@ while true; do
   sleep 60
 done & SUDO_PID=$!
 
-# Keep system awake
-caffeinate -dim -w $SUDO_PID
+# Keep system awake in the background
+caffeinate -dim -w $SUDO_PID &
 
 # Kill sudo keep-alive on exit
 trap "kill $SUDO_PID" EXIT

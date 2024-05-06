@@ -106,7 +106,7 @@ killall Dock
 ###############################################################################
 
 # Set beep sound to Funky
-defaults write -g com.apple.sound.beep.sound -string "/System/Library/Sounds/Funky.aiff"
+defaults write -g com.apple.sound.beep.sound -string "/System/Library/Sounds/Funk.aiff"
 
 ###############################################################################
 # Sharing settings
@@ -125,7 +125,7 @@ local_hostname=$(awk -F ' = ' '/^\[name\]/{f=1} f==1&&/^local_hostname/{gsub(/"/
 sudo scutil --set LocalHostName "$local_hostname"
 
 # Set file sharing to ON
-sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.AppleFileServer.plist
+sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.smbd.plist
 
 # Set screen sharing to ON
 sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.screensharing.plist
@@ -138,7 +138,7 @@ sudo launchctl load -w /System/Library/LaunchDaemons/ssh.plist
 ###############################################################################
 
 # Set key repeat rate
-defaults write -g KeyRepeat -float 1.8
+defaults write -g KeyRepeat -float 2.0
 
 # Set initial key repeat delay
 defaults write -g InitialKeyRepeat -int 15
@@ -170,6 +170,9 @@ defaults write -g com.apple.mouse.scaling -float 2.5
 # Set Finder to show all extensions
 defaults write -g AppleShowAllExtensions -bool true
 
+# Set Finder to show hard drives on desktop
+defaults write com.apple.finder ShowHardDrivesOnDesktop -bool true
+
 # Set Finder to show drives on desktop
 defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
 
@@ -178,6 +181,21 @@ defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
 
 # Set Finder to show mounted servers on desktop
 defaults write com.apple.finder ShowMountedServersOnDesktop -bool true
+
+# Set Finder to new window target to home
+defaults write com.apple.finder NewWindowTarget -string "PfHm"
+
+# Set Finder to Column view
+defaults write com.apple.finder FXPreferredViewStyle -string "clmv"
+
+# Set Finder to show path bar
+defaults write com.apple.finder ShowStatusBar -bool true
+
+# Set Finder to show status bar
+defaults write com.apple.finder ShowPathbar -bool true
+
+# Set Finder to desktop group by kind
+defaults write com.apple.finder DesktopViewSettings -dict GroupBy "Kind"
 
 ###############################################################################
 # Sleep settings
