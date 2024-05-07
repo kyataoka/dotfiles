@@ -1,5 +1,4 @@
 tap "homebrew/bundle"
-tap "homebrew/cask-versions"
 brew "jpeg-turbo"
 brew "libpng"
 brew "little-cms2"
