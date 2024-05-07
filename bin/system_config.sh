@@ -122,12 +122,7 @@ defaults write com.apple.finder ShowPathbar -bool true
 # Set Finder to desktop group by kind
 defaults write com.apple.finder DesktopViewSettings -dict GroupBy "Kind"
 
-# Enable sync of desktop and documents to iCloud
-defaults write com.apple.finder FXICloudDriveEnabled -bool true
-defaults write com.apple.finder FXICloudDriveDesktop -bool true
-defaults write com.apple.finder FXICloudDriveDocuments -bool true
-
-# kill Finder
+# Restart Finder
 killall Finder
 
 ###############################################################################
