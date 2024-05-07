@@ -1,6 +1,20 @@
 #!/bin/zsh
 ROOT_DIR=$(cd "$(dirname "$0")" && pwd)
 
+# Ask user to sync iCloud Drive
+read -q "response?Have you synced iCloud Drive? (y/n) "
+if [ "$response" != "y" ]; then
+  echo "Exiting..."
+  exit 1
+fi
+
+# Ask user to grant Terminal App Manage
+read -q "response?Have you granted Terminal App Manage? (y/n) "
+if [ "$response" != "y" ]; then
+  echo "Exiting..."
+  exit 1
+fi
+
 # Function to run scripts and handle errors
 run_script() {
   local script_path="$1"
