@@ -1,5 +1,5 @@
 #!/bin/zsh
-SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+ROOT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
 brew update
 brew bundle dump \
@@ -8,4 +8,4 @@ brew bundle dump \
   --tap \
   --mas \
   --force \
-  --file="$SCRIPT_DIR/../files/Brewfile"
+  --file="$ROOT_DIR/files/Brewfile"
