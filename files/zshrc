@@ -14,13 +14,32 @@ fi
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="$HOME/.yarn/bin:$PATH"
 export PKG_CONFIG_PATH="/opt/homebrew/opt/zlib/lib/pkgconfig"
-export PATH="$JAVA_HOME/bin:$PATH"
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 
-# Load asdf
-[[ -f $(brew --prefix asdf)/libexec/asdf.sh ]] &&
-. $(brew --prefix asdf)/libexec/asdf.sh
+if command -v ngrok &>/dev/null; then
+eval "$(ngrok completion)"
+fi
 
 # tabtab source for electron-forge package
 # uninstall by removing these lines or running `tabtab uninstall electron-forge`
 [[ -f /Users/kataokahiroki/.npm/_npx/6913fdfd1ea7a741/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /Users/kataokahiroki/.npm/_npx/6913fdfd1ea7a741/node_modules/tabtab/.completions/electron-forge.zsh
+
+# golang path
+export PATH="$HOME/go/bin:$PATH"
+
+# pnpm
+export PNPM_HOME="/Users/kataokahiroki/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm endexport PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/kataokahiroki/.lmstudio/bin"
+
+# asdf
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+
+# Java
+export JAVA_HOME=/opt/homebrew/opt/openjdk
