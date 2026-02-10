@@ -51,15 +51,15 @@ sudo scutil --set LocalHostName "$local_hostname"
 
 # Set file sharing to ON
 sudo launchctl enable system/com.apple.smbd
-sudo launchctl bootstrap system /System/Library/LaunchDaemons/com.apple.smbd.plist
+sudo launchctl bootstrap system /System/Library/LaunchDaemons/com.apple.smbd.plist || true
 
 # Set screen sharing to ON
 sudo launchctl enable system/com.apple.screensharing
-sudo launchctl bootstrap system /System/Library/LaunchDaemons/com.apple.screensharing.plist
+sudo launchctl bootstrap system /System/Library/LaunchDaemons/com.apple.screensharing.plist || true
 
 # Set remote login to ON
 sudo launchctl enable system/ssh
-sudo launchctl bootstrap system /System/Library/LaunchDaemons/ssh.plist
+sudo launchctl bootstrap system /System/Library/LaunchDaemons/ssh.plist || true
 
 ###############################################################################
 # Keyboard settings
@@ -138,7 +138,7 @@ defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
 # Set Finder to desktop group by kind
-defaults write com.apple.finder DesktopViewSettings -dict GroupBy "Kind"
+defaults write com.apple.finder DesktopViewSettings -dict-add GroupBy "Kind"
 
 # Restart Finder
 killall Finder
