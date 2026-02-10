@@ -43,3 +43,6 @@ export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
 # Java
 export JAVA_HOME=/opt/homebrew/opt/openjdk
+
+# cocoapods
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
