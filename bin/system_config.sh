@@ -74,6 +74,15 @@ defaults write -g InitialKeyRepeat -int 15
 # Set press and hold to OFF
 defaults write -g ApplePressAndHoldEnabled -bool false
 
+# Set automatic spelling correction to OFF
+defaults write -g NSAutomaticSpellingCorrectionEnabled -bool false
+
+# Set automatic capitalization to OFF
+defaults write -g NSAutomaticCapitalizationEnabled -bool false
+
+# Set automatic period substitution to OFF
+defaults write -g NSAutomaticPeriodSubstitutionEnabled -bool false
+
 ###############################################################################
 # Trackpad settings
 ###############################################################################
@@ -121,6 +130,12 @@ defaults write com.apple.finder ShowStatusBar -bool true
 
 # Set Finder to show path bar
 defaults write com.apple.finder ShowPathbar -bool true
+
+# Set Finder search scope to current folder
+defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
+
+# Set Finder to disable extension change warning
+defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
 # Set Finder to desktop group by kind
 defaults write com.apple.finder DesktopViewSettings -dict GroupBy "Kind"
@@ -199,6 +214,10 @@ defaults write com.apple.dock show-recents -bool false
 # Disable auto rearrange spaces based on most recent use
 defaults write com.apple.dock mru-spaces -bool false
 
+# Set hot corner bottom-right to Quick Note
+defaults write com.apple.dock wvous-br-corner -int 14
+defaults write com.apple.dock wvous-br-modifier -int 0
+
 # Restart Dock
 killall Dock
 
@@ -218,6 +237,13 @@ sudo pmset -a displaysleep 0
 ###############################################################################
 # Other settings
 ###############################################################################
+
+# Set menu bar clock to 24-hour format with seconds
+defaults write com.apple.menuextra.clock Show24Hour -bool true
+defaults write com.apple.menuextra.clock ShowSeconds -bool true
+
+# Set print dialog to expanded by default
+defaults write -g PMPrintingExpandedStateForPrint -bool true
 
 # Set DS_Store to OFF
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
