@@ -50,13 +50,16 @@ local_hostname=$(awk -F ' = ' '/^\[name\]/{f=1} f==1&&/^local_hostname/{gsub(/"/
 sudo scutil --set LocalHostName "$local_hostname"
 
 # Set file sharing to ON
-sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.smbd.plist
+sudo launchctl enable system/com.apple.smbd
+sudo launchctl bootstrap system /System/Library/LaunchDaemons/com.apple.smbd.plist
 
 # Set screen sharing to ON
-sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.screensharing.plist
+sudo launchctl enable system/com.apple.screensharing
+sudo launchctl bootstrap system /System/Library/LaunchDaemons/com.apple.screensharing.plist
 
 # Set remote login to ON
-sudo launchctl load -w /System/Library/LaunchDaemons/ssh.plist
+sudo launchctl enable system/ssh
+sudo launchctl bootstrap system /System/Library/LaunchDaemons/ssh.plist
 
 ###############################################################################
 # Keyboard settings
@@ -113,10 +116,10 @@ defaults write com.apple.finder NewWindowTarget -string "PfHm"
 # Set Finder to Column view
 defaults write com.apple.finder FXPreferredViewStyle -string "clmv"
 
-# Set Finder to show path bar
+# Set Finder to show status bar
 defaults write com.apple.finder ShowStatusBar -bool true
 
-# Set Finder to show status bar
+# Set Finder to show path bar
 defaults write com.apple.finder ShowPathbar -bool true
 
 # Set Finder to desktop group by kind
@@ -141,8 +144,7 @@ dockutil --remove all --no-restart
 # Add applications to dock
 applications=(
   "/Applications/Finder.app"
-  "/Applications/Launchpad.app"
-  "/Applications/Mission Control.app"
+  "/System/Applications/Mission Control.app"
   "/System/Applications/Home.app"
   "/Applications/Google Chrome.app"
   "/Applications/Safari.app"
