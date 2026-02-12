@@ -5,6 +5,7 @@
 	email = kyataoka.deve@gmail.com
 [core]
   editor = /usr/bin/vim
+  excludesFile = ~/.gitignore
 [init]
 	defaultBranch = main
 
