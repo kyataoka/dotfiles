@@ -1,5 +1,6 @@
 #!/bin/zsh
 ROOT_DIR="$(cd "$(dirname "$0")" && pwd)"
+BREWFILE="$ROOT_DIR/files/Brewfile"
 
 brew update
 brew bundle dump \
@@ -8,4 +9,19 @@ brew bundle dump \
   --tap \
   --mas \
   --force \
-  --file="$ROOT_DIR/files/Brewfile"
+  --file="$BREWFILE"
+
+# Remove dependency-only formulae, keeping only leaf packages
+leaves=$(brew leaves)
+tmpfile=$(mktemp)
+while IFS= read -r line; do
+  if [[ "$line" =~ '^brew "([^"]+)"' ]]; then
+    pkg="${match[1]}"
+    if echo "$leaves" | grep -qx "$pkg"; then
+      echo "$line"
+    fi
+  else
+    echo "$line"
+  fi
+done < "$BREWFILE" > "$tmpfile"
+mv "$tmpfile" "$BREWFILE"

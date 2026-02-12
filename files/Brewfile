@@ -1,29 +1,25 @@
-tap "homebrew/bundle"
-brew "jpeg-turbo"
-brew "libpng"
-brew "little-cms2"
-brew "webp"
-brew "openssl@3"
 brew "asdf"
-brew "glib"
+brew "cbonsai"
+brew "cmatrix"
 brew "cocoapods"
-brew "unbound"
-brew "gnutls"
-brew "tesseract"
+brew "diff-pdf"
+brew "fastfetch"
+brew "fastlane"
 brew "ffmpeg"
-brew "pkg-config"
-brew "guile"
+brew "gh"
+brew "go"
 brew "jq"
-brew "librsvg"
+brew "mactop"
+brew "makensis"
 brew "mas"
-brew "neofetch"
-brew "nghttp2"
 brew "openjdk"
-brew "python@3.9"
-brew "reattach-to-user-namespace"
+brew "rclone"
 brew "sl"
+brew "sox"
+brew "tesseract"
 brew "tmux"
 brew "tree"
+brew "upx"
 brew "vips"
 brew "wget"
 brew "xcodes"
@@ -31,55 +27,76 @@ brew "zlib"
 cask "1password"
 cask "1password-cli"
 cask "alfred"
-cask "android-file-transfer"
-cask "android-platform-tools"
+cask "android-studio"
 cask "appcleaner"
 cask "applite"
+cask "autodesk-fusion"
+cask "bambu-studio"
+cask "blender"
 cask "brave-browser"
+cask "chatgpt"
 cask "cinebench"
+cask "claude"
+cask "comfyui"
+cask "container"
+cask "cursor"
 cask "cyberduck"
 cask "deepl"
 cask "desmume"
 cask "devtoys"
 cask "discord"
-cask "docker"
+cask "docker-desktop"
+cask "drawio"
+cask "elgato-stream-deck"
 cask "figma"
 cask "firefox"
 cask "fujitsu-scansnap-home"
+cask "gcloud-cli"
 cask "geekbench"
 cask "gimp"
 cask "google-chrome"
+cask "google-drive"
 cask "keyboardcleantool"
+cask "lm-studio"
 cask "minecraft"
 cask "monitorcontrol"
 cask "mysqlworkbench"
 cask "ngrok"
+cask "obs"
+cask "onyx"
 cask "parallels"
+cask "postman"
+cask "ppsspp-emulator"
 cask "raspberry-pi-imager"
 cask "scroll-reverser"
+cask "sensei"
 cask "sf-symbols"
 cask "sidequest"
-cask "slack"
 cask "sony-ps-remote-play"
 cask "steam"
-cask "topaz-denoise-ai"
-cask "topaz-gigapixel-ai"
-cask "topaz-video-ai"
+cask "syncroom"
+cask "temurin"
+cask "topaz-gigapixel"
+cask "topaz-photo"
+cask "topaz-video"
 cask "tor-browser"
 cask "transmission"
 cask "unity-hub"
+cask "utm"
+cask "virtualbuddy"
 cask "visual-studio-code"
 cask "vlc"
 cask "warp"
-cask "whisky"
-cask "xcodes"
+cask "xcodes-app"
 cask "zoom"
 mas "1Password for Safari", id: 1569813296
 mas "Amazing AI", id: 1660147028
 mas "Apple Configurator", id: 1037126344
+mas "Blackmagic Disk Speed Test", id: 425264550
 mas "CotEditor", id: 1024640650
+mas "DaVinci Resolve", id: 571213070
+mas "DeathStranding", id: 6449748961
 mas "Developer", id: 640199958
-mas "Disk Speed Test", id: 425264550
 mas "Goodnotes", id: 1444383602
 mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
@@ -87,15 +104,14 @@ mas "Kindle", id: 302584613
 mas "LanScan", id: 472226235
 mas "LINE", id: 539883307
 mas "Logic Pro", id: 634148309
-mas "Make It Spatial", id: 6477729396
-mas "Microsoft Remote Desktop", id: 1295203466
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Pictura", id: 6451364124
-mas "Playgrounds", id: 1496833156
 mas "RunCat", id: 1429033973
-mas "SingleFile", id: 6444322545
 mas "Slack", id: 803453959
+mas "SpatialPhotoMaker2", id: 6477729396
+mas "Swift Playground", id: 1496833156
 mas "The Unarchiver", id: 425424353
 mas "Upsies", id: 6475957299
+mas "Windows App", id: 1295203466
 mas "Xcode", id: 497799835
