@@ -33,4 +33,6 @@ rm -rf ~/.tmux.conf \
 	~/.zpreztorc \
 	~/.zprofile \
 	~/.zshenv \
-	~/.zshrc
+	~/.zshrc \
+	~/.gitconfig \
+	~/.gitignore
