@@ -234,12 +234,35 @@ defaults -currentHost write com.apple.screensaver idleTime -int 0
 sudo pmset -a displaysleep 0
 
 ###############################################################################
-# Other settings
+# Status Menu settings
 ###############################################################################
+
+# Show Sound in menu bar (always)
+defaults -currentHost write com.apple.controlcenter Sound -int 18
+
+# Hide WiFi from menu bar
+defaults -currentHost write com.apple.controlcenter WiFi -int 8
+
+# Hide Bluetooth from menu bar
+defaults -currentHost write com.apple.controlcenter Bluetooth -int 8
+
+# Hide Siri from menu bar
+defaults -currentHost write com.apple.controlcenter Siri -int 8
+defaults write com.apple.Siri StatusMenuVisible -bool false
+
+# Hide Spotlight from menu bar
+defaults -currentHost write com.apple.Spotlight MenuItemHidden -int 1
 
 # Set menu bar clock to 24-hour format with seconds
 defaults write com.apple.menuextra.clock Show24Hour -bool true
 defaults write com.apple.menuextra.clock ShowSeconds -bool true
+
+# Restart ControlCenter to apply changes
+killall ControlCenter
+
+###############################################################################
+# Other settings
+###############################################################################
 
 # Set print dialog to expanded by default
 defaults write -g PMPrintingExpandedStateForPrint -bool true
