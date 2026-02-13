@@ -10,7 +10,12 @@ if [ "$response" != "y" ]; then
   exit 1
 fi
 
-# Ask user to grant Terminal App Manage
+# Grant Terminal App Management permission
+# Trigger App Management list registration by attempting to write to a notarized app bundle
+touch /Applications/Safari.app/Contents/Resources/.test 2>/dev/null
+rm -f /Applications/Safari.app/Contents/Resources/.test 2>/dev/null
+# Open App Management settings
+open "x-apple.systempreferences:com.apple.preference.security?Privacy_AppBundles"
 read -q "response?${_MSG[terminal_manage]}"
 echo
 if [ "$response" != "y" ]; then
@@ -31,17 +36,16 @@ run_script() {
 sudo -v || { echo "${_MSG[sudo_failed]}"; exit 1; }
 
 # Start sudo keep-alive in the background
-while true; do
-  sudo -v
-  [[ $? -ne 0 ]] && exit 1
-  sleep 60
-done & SUDO_PID=$!
+# -n: non-interactive (never prompt), avoids blocking in background
+# kill -0 "$$": exit loop when parent script finishes
+while true; do sudo -n true; sleep 30; kill -0 "$$" || exit; done 2>/dev/null &
+SUDO_PID=$!
 
 # Keep system awake in the background
 caffeinate -dim -w $SUDO_PID &
 
 # Kill sudo keep-alive on exit
-trap "kill $SUDO_PID" EXIT
+trap "kill $SUDO_PID 2>/dev/null" EXIT
 
 # List of scripts to be run
 scripts=(

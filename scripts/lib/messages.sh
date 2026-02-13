@@ -6,7 +6,7 @@ typeset -gA _MSG
 _load_ja() {
   # install.sh
   _MSG[icloud_sync]="iCloud Driveを同期しましたか？ (y/n) "
-  _MSG[terminal_manage]="ターミナルのアプリ管理権限を許可しましたか？ (y/n) "
+  _MSG[terminal_manage]="App Managementの設定画面でTerminalを有効にしてください。完了しましたか？ (y/n) "
   _MSG[exit]="終了します..."
   _MSG[failed_to_run]="実行に失敗しました: %s"
   _MSG[sudo_failed]="sudo認証に失敗しました"
@@ -42,7 +42,7 @@ _load_ja() {
 _load_en() {
   # install.sh
   _MSG[icloud_sync]="Have you synced iCloud Drive? (y/n) "
-  _MSG[terminal_manage]="Have you granted Terminal App Manage? (y/n) "
+  _MSG[terminal_manage]="Please enable Terminal in the App Management settings. Done? (y/n) "
   _MSG[exit]="Exiting..."
   _MSG[failed_to_run]="Failed to run %s"
   _MSG[sudo_failed]="sudo authentication failed"
