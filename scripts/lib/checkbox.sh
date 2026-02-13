@@ -3,6 +3,7 @@
 # チェックボックス選択UI（外部ツール不要）
 # source して checkbox_select 関数を利用する
 # 結果は CHECKBOX_RESULT 配列に格納される
+# 事前に messages.sh が source されている前提
 
 _CHECKBOX_HEADER_LINES=3
 _CHECKBOX_INDICATOR_LINES=2
@@ -48,13 +49,13 @@ checkbox_select() {
     # ヘッダー（固定位置）
     tput cup 0 0
     printf "\033[1m%s\033[0m  \033[2m%s\033[0m\033[K\n" "$header" "$page_info"
-    printf "↑↓:移動  Space:選択/解除  a:全選択  n:全解除  %s  q:キャンセル\033[K\n" "$confirm_label"
+    printf "${_MSG[checkbox_help]}\033[K\n" "$confirm_label"
     printf "\033[K\n"
 
     # 上スクロールインジケータ
     tput cup $_CHECKBOX_HEADER_LINES 0
     if (( scroll_offset > 0 )); then
-      printf "   \033[2m▲ 他 %d 件\033[0m\033[K\n" "$scroll_offset"
+      printf "   \033[2m$(printf "${_MSG[scroll_up]}" "$scroll_offset")\033[0m\033[K\n"
     else
       printf "\033[K\n"
     fi
@@ -81,7 +82,7 @@ checkbox_select() {
     # 下スクロールインジケータ
     local remaining=$((total - end))
     if (( remaining > 0 )); then
-      printf "   \033[2m▼ 他 %d 件\033[0m\033[K\n" "$remaining"
+      printf "   \033[2m$(printf "${_MSG[scroll_down]}" "$remaining")\033[0m\033[K\n"
     else
       printf "\033[K\n"
     fi
@@ -92,7 +93,7 @@ checkbox_select() {
       [[ "${selected[$item]}" == "1" ]] && ((selected_count++))
     done
     printf "\033[K\n"
-    printf " %d/%d 選択中\033[K" "$selected_count" "$total"
+    printf " ${_MSG[selected_count]}\033[K" "$selected_count" "$total"
 
     read -k 1 key 2>/dev/null
 

@@ -1,17 +1,18 @@
 #!/bin/zsh
 ROOT_DIR=$(cd "$(dirname "$0")" && pwd)
+source "$ROOT_DIR/scripts/lib/messages.sh"
 
 # Ask user to sync iCloud Drive
-read -q "response?Have you synced iCloud Drive? (y/n) "
+read -q "response?${_MSG[icloud_sync]}"
 if [ "$response" != "y" ]; then
-  echo "Exiting..."
+  echo "${_MSG[exit]}"
   exit 1
 fi
 
 # Ask user to grant Terminal App Manage
-read -q "response?Have you granted Terminal App Manage? (y/n) "
+read -q "response?${_MSG[terminal_manage]}"
 if [ "$response" != "y" ]; then
-  echo "Exiting..."
+  echo "${_MSG[exit]}"
   exit 1
 fi
 
@@ -19,13 +20,13 @@ fi
 run_script() {
   local script_path="$1"
   if ! "$ROOT_DIR/scripts/$script_path"; then
-    echo "Failed to run $script_path"
+    printf "${_MSG[failed_to_run]}\n" "$script_path"
     exit 1
   fi
 }
 
 # Check if sudo is available
-sudo -v || { echo "sudo authentication failed"; exit 1; }
+sudo -v || { echo "${_MSG[sudo_failed]}"; exit 1; }
 
 # Start sudo keep-alive in the background
 while true; do
@@ -57,7 +58,7 @@ for script in "${scripts[@]}"; do
 done
 
 # Ask user to restart the system
-read -q "REPLY?Do you want to restart the system now? (y/n) "
+read -q "REPLY?${_MSG[restart_prompt]}"
 echo
 if [[ "$REPLY" = "y" ]]; then
   sudo reboot
