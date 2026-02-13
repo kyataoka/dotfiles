@@ -30,7 +30,7 @@ macOS（Apple Silicon対応）のドットファイル管理および初期セ�
 1. `scripts/config.sh` — コンピュータ名・ホスト名を対話的に設定し `config.ini` に保存
 2. `scripts/init.sh` — Xcode CLI Tools、Rosetta 2、Prezto、Homebrewのインストール
 3. `scripts/link.sh` — `files/` 配下の設定ファイルを `~/` にシンボリックリンク
-4. `scripts/brew.sh` — `files/Brewfile` に基づきパッケージ一括インストール
+4. `scripts/brew.sh` — `files/brew/Brewfile` に基づきパッケージ一括インストール
 5. `scripts/asdf.sh` — asdf経由でNode.js・Flutter・Golangをインストール
 6. `scripts/node.sh` — yarn・pnpmをグローバルインストール
 7. `scripts/system_config.sh` — macOSシステム設定（キーボード、Dock、Finder等）を `defaults write` で適用
@@ -38,14 +38,12 @@ macOS（Apple Silicon対応）のドットファイル管理および初期セ�
 ### ディレクトリ構成
 
 - `scripts/` — セットアップスクリプト群（上記7ファイル）
-- `files/` — シンボリックリンクされる設定ファイル群
-  - `zshrc` — Prezto初期化、PATH設定（Homebrew, asdf, Go, pnpm等）
-  - `vimrc` — dein.vimプラグインマネージャ、ファイルタイプ別設定
-  - `tmux.conf` — プレフィックス `C-q`、viモード、日本語コメント
-  - `zpreztorc` — Preztoモジュール設定（viキーバインド）
-  - `git/gitconfig` — 1PasswordのSSH署名統合、Darwin固有設定を `include`
-  - `Brewfile` — Homebrew formula・cask・MASアプリの一覧（100+エントリ）
-  - `dein.toml`, `dein_lazy.toml` — Vimプラグイン定義
+- `files/` — 設定ファイル群（ツール単位でサブディレクトリ分割）
+  - `zsh/` — `zshrc`（Prezto初期化、PATH設定）、`zpreztorc`（Preztoモジュール設定）
+  - `vim/` — `vimrc`（dein.vimプラグインマネージャ）、`dein.toml`、`dein_lazy.toml`
+  - `tmux/` — `tmux.conf`（プレフィックス `C-q`、viモード）
+  - `git/` — `gitconfig`（1Password SSH署名統合）、`gitconfig_darwin`、`gitignore`
+  - `brew/` — `Brewfile`（Homebrew formula・cask・MASアプリの一覧）
 - `config.ini` — マシン固有設定（gitignore対象、`config.ini.example` がテンプレート）
 - `backup/` — `uninstall.sh` 実行時のBrewfileバックアップ先
 

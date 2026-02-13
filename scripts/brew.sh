@@ -13,7 +13,7 @@ if [[ -f "$SELECTED_BREWFILE" ]]; then
   brew bundle --file="$SELECTED_BREWFILE"
   rm -f "$SELECTED_BREWFILE"
 else
-  brew bundle --file="$ROOT_DIR"/files/Brewfile
+  brew bundle --file="$ROOT_DIR"/files/brew/Brewfile
 fi
 
 # Accept Xcode license with agreement

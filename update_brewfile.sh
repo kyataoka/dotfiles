@@ -1,6 +1,6 @@
 #!/bin/zsh
 ROOT_DIR="$(cd "$(dirname "$0")" && pwd)"
-BREWFILE="$ROOT_DIR/files/Brewfile"
+BREWFILE="$ROOT_DIR/files/brew/Brewfile"
 
 brew update
 brew bundle dump \

@@ -59,7 +59,7 @@ fi
 echo "New configuration saved to '$new_config_file'"
 
 # パッケージ選択
-BREWFILE="$ROOT_DIR/files/Brewfile"
+BREWFILE="$ROOT_DIR/files/brew/Brewfile"
 SELECTED_BREWFILE="$ROOT_DIR/.brewfile_selected"
 
 echo ""

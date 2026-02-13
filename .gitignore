@@ -1,4 +1,4 @@
 .DS_Store
 config.ini
 .brewfile_selected
-files/Brewfile.lock.json
+files/brew/Brewfile.lock.json
