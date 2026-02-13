@@ -3,6 +3,7 @@ ROOT_DIR=$(cd "$(dirname "$0")" && pwd)
 source "$ROOT_DIR/scripts/lib/messages.sh"
 
 # Ask user to sync iCloud Drive
+open "x-apple.systempreferences:com.apple.systempreferences.AppleIDSettings"
 read -q "response?${_MSG[icloud_sync]}"
 echo
 if [ "$response" != "y" ]; then
