@@ -27,17 +27,17 @@ macOS（Apple Silicon対応）のドットファイル管理および初期セ�
 
 `install.sh` が以下のスクリプトを順番に実行する：
 
-1. `bin/config.sh` — コンピュータ名・ホスト名を対話的に設定し `config.ini` に保存
-2. `bin/init.sh` — Xcode CLI Tools、Rosetta 2、Prezto、Homebrewのインストール
-3. `bin/link.sh` — `files/` 配下の設定ファイルを `~/` にシンボリックリンク
-4. `bin/brew.sh` — `files/Brewfile` に基づきパッケージ一括インストール
-5. `bin/asdf.sh` — asdf経由でNode.js・Flutter・Golangをインストール
-6. `bin/node.sh` — yarn・pnpmをグローバルインストール
-7. `bin/system_config.sh` — macOSシステム設定（キーボード、Dock、Finder等）を `defaults write` で適用
+1. `scripts/config.sh` — コンピュータ名・ホスト名を対話的に設定し `config.ini` に保存
+2. `scripts/init.sh` — Xcode CLI Tools、Rosetta 2、Prezto、Homebrewのインストール
+3. `scripts/link.sh` — `files/` 配下の設定ファイルを `~/` にシンボリックリンク
+4. `scripts/brew.sh` — `files/Brewfile` に基づきパッケージ一括インストール
+5. `scripts/asdf.sh` — asdf経由でNode.js・Flutter・Golangをインストール
+6. `scripts/node.sh` — yarn・pnpmをグローバルインストール
+7. `scripts/system_config.sh` — macOSシステム設定（キーボード、Dock、Finder等）を `defaults write` で適用
 
 ### ディレクトリ構成
 
-- `bin/` — セットアップスクリプト群（上記7ファイル）
+- `scripts/` — セットアップスクリプト群（上記7ファイル）
 - `files/` — シンボリックリンクされる設定ファイル群
   - `zshrc` — Prezto初期化、PATH設定（Homebrew, asdf, Go, pnpm等）
   - `vimrc` — dein.vimプラグインマネージャ、ファイルタイプ別設定

@@ -67,7 +67,7 @@ read -q "select_packages?Do you want to select packages to install? (y/n) "
 echo ""
 
 if [[ "$select_packages" == "y" ]]; then
-  source "$ROOT_DIR/bin/lib/checkbox.sh"
+  source "$ROOT_DIR/scripts/lib/checkbox.sh"
   trap 'tput cnorm; tput sgr0' INT TERM
 
   # Brewfileからアイテムを種類別に抽出

@@ -18,7 +18,7 @@ fi
 # Function to run scripts and handle errors
 run_script() {
   local script_path="$1"
-  if ! "$ROOT_DIR/bin/$script_path"; then
+  if ! "$ROOT_DIR/scripts/$script_path"; then
     echo "Failed to run $script_path"
     exit 1
   fi
