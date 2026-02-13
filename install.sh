@@ -4,6 +4,7 @@ source "$ROOT_DIR/scripts/lib/messages.sh"
 
 # Ask user to sync iCloud Drive
 read -q "response?${_MSG[icloud_sync]}"
+echo
 if [ "$response" != "y" ]; then
   echo "${_MSG[exit]}"
   exit 1
@@ -11,6 +12,7 @@ fi
 
 # Ask user to grant Terminal App Manage
 read -q "response?${_MSG[terminal_manage]}"
+echo
 if [ "$response" != "y" ]; then
   echo "${_MSG[exit]}"
   exit 1

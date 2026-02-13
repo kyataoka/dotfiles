@@ -11,6 +11,7 @@ new_config_file="$CONFIG_FILE"
 if [ -f "$new_config_file" ]; then
   echo "${_MSG[config_exists]}"
   read -q "response?${_MSG[enter_response]}"
+  echo
   if [ "$response" != "y" ]; then
     echo "${_MSG[exit]}"
     exit 0
@@ -44,6 +45,7 @@ echo "hostname = $hostname"
 echo "local_hostname = $local_hostname"
 
 read -q "response?${_MSG[save_config]}"
+echo
 if [ "$response" != "y" ]; then
   echo "${_MSG[exit]}"
   exit 1
