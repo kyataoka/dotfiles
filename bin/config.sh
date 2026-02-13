@@ -1,10 +1,10 @@
 #!/bin/zsh
 set -e
 
-ROOT_DIR="$(cd "$(dirname "$0")" && pwd)/.."
+source "$(cd "$(dirname "$0")" && pwd)/lib/common.sh"
 
 # config
-new_config_file="$ROOT_DIR/config.ini"
+new_config_file="$CONFIG_FILE"
 
 # If the configuration file exists, ask the user if they want to overwrite it
 if [ -f "$new_config_file" ]; then
@@ -67,7 +67,7 @@ read -q "select_packages?Do you want to select packages to install? (y/n) "
 echo ""
 
 if [[ "$select_packages" == "y" ]]; then
-  source "$ROOT_DIR/bin/checkbox.sh"
+  source "$ROOT_DIR/bin/lib/checkbox.sh"
   trap 'tput cnorm; tput sgr0' INT TERM
 
   # Brewfileからアイテムを種類別に抽出

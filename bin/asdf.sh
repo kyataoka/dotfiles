@@ -1,8 +1,7 @@
 #!/bin/zsh
 set -e
 
-ROOT_DIR="$(cd "$(dirname "$0")" && pwd)/.."
-CONFIG_FILE="$ROOT_DIR"/config.ini
+source "$(cd "$(dirname "$0")" && pwd)/lib/common.sh"
 
 source ~/.zshrc || true
 

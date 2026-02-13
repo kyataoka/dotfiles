@@ -1,7 +1,7 @@
 #!/bin/zsh
 set -e
 
-ROOT_DIR="$(cd "$(dirname "$0")" && pwd)/.."
+source "$(cd "$(dirname "$0")" && pwd)/lib/common.sh"
 
 source ~/.zshrc || true
 

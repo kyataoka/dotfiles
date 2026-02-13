@@ -1,14 +1,13 @@
 #!/bin/zsh
 set -e
 
-SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-DOTFILES_DIR="$(cd "$SCRIPT_DIR"/.. && pwd)"
+source "$(cd "$(dirname "$0")" && pwd)/lib/common.sh"
 
 source ~/.zshrc || true
 
-ln -sf "$DOTFILES_DIR"/files/vimrc ~/.vimrc
-ln -sf "$DOTFILES_DIR"/files/tmux.conf ~/.tmux.conf
-ln -sf "$DOTFILES_DIR"/files/zshrc ~/.zshrc
-ln -sf "$DOTFILES_DIR"/files/zpreztorc ~/.zpreztorc
-ln -sf "$DOTFILES_DIR"/files/git/gitconfig ~/.gitconfig
-ln -sf "$DOTFILES_DIR"/files/git/gitignore ~/.gitignore
+ln -sf "$ROOT_DIR"/files/vimrc ~/.vimrc
+ln -sf "$ROOT_DIR"/files/tmux.conf ~/.tmux.conf
+ln -sf "$ROOT_DIR"/files/zshrc ~/.zshrc
+ln -sf "$ROOT_DIR"/files/zpreztorc ~/.zpreztorc
+ln -sf "$ROOT_DIR"/files/git/gitconfig ~/.gitconfig
+ln -sf "$ROOT_DIR"/files/git/gitignore ~/.gitignore
