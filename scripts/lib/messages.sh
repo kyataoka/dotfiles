@@ -6,7 +6,8 @@ typeset -gA _MSG
 _load_ja() {
   # install.sh
   _MSG[icloud_sync]="iCloud Driveの設定画面でDesktopとDocumentsの同期を有効にしてください。完了しましたか？ (y/n) "
-  _MSG[terminal_manage]="App Managementの設定画面でTerminalを有効にしてください。完了しましたか？ (y/n) "
+  _MSG[terminal_fda]="Terminalのフルディスクアクセス権限は付与済みですか？ (y/n) "
+  _MSG[terminal_fda_guide]="設定 > プライバシーとセキュリティ > フルディスクアクセス でTerminalを追加してください。\n追加後、Terminalを再起動してから再度このスクリプトを実行してください。"
   _MSG[exit]="終了します..."
   _MSG[failed_to_run]="実行に失敗しました: %s"
   _MSG[sudo_failed]="sudo認証に失敗しました"
@@ -42,7 +43,8 @@ _load_ja() {
 _load_en() {
   # install.sh
   _MSG[icloud_sync]="Please enable Desktop and Documents sync in iCloud Drive settings. Done? (y/n) "
-  _MSG[terminal_manage]="Please enable Terminal in the App Management settings. Done? (y/n) "
+  _MSG[terminal_fda]="Has Terminal been granted Full Disk Access? (y/n) "
+  _MSG[terminal_fda_guide]="Please add Terminal in Settings > Privacy & Security > Full Disk Access.\nAfter adding, restart Terminal and run this script again."
   _MSG[exit]="Exiting..."
   _MSG[failed_to_run]="Failed to run %s"
   _MSG[sudo_failed]="sudo authentication failed"

@@ -2,18 +2,18 @@
 ROOT_DIR=$(cd "$(dirname "$0")" && pwd)
 source "$ROOT_DIR/scripts/lib/messages.sh"
 
-# Ask user to sync iCloud Drive
-open "x-apple.systempreferences:com.apple.systempreferences.AppleIDSettings:icloud"
-read -q "response?${_MSG[icloud_sync]}"
+# Check Terminal Full Disk Access permission
+read -q "response?${_MSG[terminal_fda]}"
 echo
 if [ "$response" != "y" ]; then
-  echo "${_MSG[exit]}"
+  open "x-apple.systempreferences:com.apple.preference.security?Privacy_AllFiles"
+  echo "${_MSG[terminal_fda_guide]}"
   exit 1
 fi
 
-# Grant Terminal App Management permission
-open "x-apple.systempreferences:com.apple.preference.security?Privacy_AppBundles"
-read -q "response?${_MSG[terminal_manage]}"
+# Ask user to sync iCloud Drive
+open "x-apple.systempreferences:com.apple.systempreferences.AppleIDSettings:icloud"
+read -q "response?${_MSG[icloud_sync]}"
 echo
 if [ "$response" != "y" ]; then
   echo "${_MSG[exit]}"
