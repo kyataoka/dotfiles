@@ -10,10 +10,10 @@ SELECTED_BREWFILE="$ROOT_DIR/.brewfile_selected"
 brew update
 
 if [[ -f "$SELECTED_BREWFILE" ]]; then
-  brew bundle --file="$SELECTED_BREWFILE"
+  brew bundle --verbose --file="$SELECTED_BREWFILE"
   rm -f "$SELECTED_BREWFILE"
 else
-  brew bundle --file="$ROOT_DIR"/files/brew/Brewfile
+  brew bundle --verbose --file="$ROOT_DIR"/files/brew/Brewfile
 fi
 
 # Accept Xcode license with agreement
