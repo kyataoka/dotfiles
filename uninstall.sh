@@ -2,6 +2,8 @@
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
+source ~/.zshrc || true
+
 # Uninstall Homebrew packages and dependencies
 brew bundle dump \
 	--formula \

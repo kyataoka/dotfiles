@@ -26,7 +26,9 @@ if [[ $brew_exit -ne 0 ]]; then
   echo
 fi
 
-[[ "$brewfile" == "$SELECTED_BREWFILE" ]] && rm -f "$SELECTED_BREWFILE"
+if [[ "$brewfile" == "$SELECTED_BREWFILE" ]]; then
+  rm -f "$SELECTED_BREWFILE"
+fi
 
 # Accept Xcode license with agreement
 sudo xcodebuild -license accept || true

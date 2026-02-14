@@ -12,8 +12,9 @@ execute 'set runtimepath^=' . s:dein_repo_dir
 
 if dein#load_state(s:dein_dir)
     call dein#begin(s:dein_dir)
-    let s:toml= expand('~/dotfiles/files/vim/dein.toml')
-    let s:toml_lazy = expand('~/dotfiles/files/vim/dein_lazy.toml')
+    let s:vimrc_dir = fnamemodify(resolve(expand('<sfile>:p')), ':h')
+    let s:toml = s:vimrc_dir . '/dein.toml'
+    let s:toml_lazy = s:vimrc_dir . '/dein_lazy.toml'
     call dein#load_toml(s:toml, {'lazy': 0})
     call dein#load_toml(s:toml_lazy, {'lazy': 1})
 
