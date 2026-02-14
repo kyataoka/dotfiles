@@ -12,10 +12,6 @@ if [ "$response" != "y" ]; then
 fi
 
 # Grant Terminal App Management permission
-# Trigger App Management list registration by attempting to write to a notarized app bundle
-touch /Applications/Safari.app/Contents/Resources/.test 2>/dev/null
-rm -f /Applications/Safari.app/Contents/Resources/.test 2>/dev/null
-# Open App Management settings
 open "x-apple.systempreferences:com.apple.preference.security?Privacy_AppBundles"
 read -q "response?${_MSG[terminal_manage]}"
 echo
