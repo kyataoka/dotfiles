@@ -42,7 +42,6 @@ cask "container"
 cask "cursor"
 cask "cyberduck"
 cask "deepl"
-cask "desmume"
 cask "devtoys"
 cask "discord"
 cask "docker-desktop"
@@ -95,7 +94,6 @@ mas "Apple Configurator", id: 1037126344
 mas "Blackmagic Disk Speed Test", id: 425264550
 mas "CotEditor", id: 1024640650
 mas "DaVinci Resolve", id: 571213070
-mas "DeathStranding", id: 6449748961
 mas "Developer", id: 640199958
 mas "Goodnotes", id: 1444383602
 mas "iMovie", id: 408981434

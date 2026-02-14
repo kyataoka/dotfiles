@@ -16,9 +16,12 @@ _load_ja() {
   _MSG[nopasswd_removed]="一時的なNOPASSWD設定を削除しました"
   _MSG[restart_prompt]="システムを再起動しますか？ (y/n) "
 
+  # brew.sh
+  _MSG[brew_bundle_failed]="一部のパッケージのインストールに失敗しました"
+  _MSG[brew_continue_prompt]="セットアップを続行しますか？ (y/n) "
+
   # config.sh
-  _MSG[config_exists]="設定ファイルが既に存在します。上書きしますか？ (y/n)"
-  _MSG[enter_response]="入力してください(y/n): "
+  _MSG[config_exists]="設定ファイルが既に存在します。上書きしますか？ (y/n) "
   _MSG[enter_settings]="新しい設定を入力してください:"
   _MSG[enter_computer_name]="コンピュータ名を入力: "
   _MSG[enter_hostname]="ホスト名を入力 (デフォルト: %s): "
@@ -56,9 +59,12 @@ _load_en() {
   _MSG[nopasswd_removed]="Temporary NOPASSWD setting removed"
   _MSG[restart_prompt]="Do you want to restart the system now? (y/n) "
 
+  # brew.sh
+  _MSG[brew_bundle_failed]="Some packages failed to install"
+  _MSG[brew_continue_prompt]="Do you want to continue setup? (y/n) "
+
   # config.sh
-  _MSG[config_exists]="Configuration file already exists. Do you want to overwrite it? (y/n)"
-  _MSG[enter_response]="Enter your response(y/n): "
+  _MSG[config_exists]="Configuration file already exists. Do you want to overwrite it? (y/n) "
   _MSG[enter_settings]="Please enter the new settings for your configuration file:"
   _MSG[enter_computer_name]="Enter computer_name: "
   _MSG[enter_hostname]="Enter hostname (default: %s): "
