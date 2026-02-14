@@ -3,9 +3,7 @@ ROOT_DIR=$(cd "$(dirname "$0")" && pwd)
 source "$ROOT_DIR/scripts/lib/messages.sh"
 
 # Check Terminal Full Disk Access permission
-read -q "response?${_MSG[terminal_fda]}"
-echo
-if [ "$response" != "y" ]; then
+if ! plutil -lint /Library/Preferences/com.apple.TimeMachine.plist &>/dev/null; then
   open "x-apple.systempreferences:com.apple.preference.security?Privacy_AllFiles"
   echo "${_MSG[terminal_fda_guide]}"
   exit 1
