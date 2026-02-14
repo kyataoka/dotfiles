@@ -85,5 +85,6 @@ done
 read -q "REPLY?${_MSG[restart_prompt]}"
 echo
 if [[ "$REPLY" = "y" ]]; then
+  cleanup
   sudo reboot
 fi
