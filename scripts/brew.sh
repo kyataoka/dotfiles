@@ -10,22 +10,25 @@ SELECTED_BREWFILE="$ROOT_DIR/.brewfile_selected"
 
 brew update
 
-brew_exit=0
+brewfile="$ROOT_DIR/files/brew/Brewfile"
 if [[ -f "$SELECTED_BREWFILE" ]]; then
-  brew bundle --verbose --file="$SELECTED_BREWFILE" || brew_exit=$?
-  rm -f "$SELECTED_BREWFILE"
-else
-  brew bundle --verbose --file="$ROOT_DIR"/files/brew/Brewfile || brew_exit=$?
+  brewfile="$SELECTED_BREWFILE"
 fi
+
+brew_exit=0
+brew bundle --verbose --file="$brewfile" || brew_exit=$?
 
 if [[ $brew_exit -ne 0 ]]; then
   echo "${_MSG[brew_bundle_failed]}"
+  brew bundle check --verbose --file="$brewfile" || true
   if ! read -q "response?${_MSG[brew_continue_prompt]}"; then
     echo
     exit 1
   fi
   echo
 fi
+
+[[ "$brewfile" == "$SELECTED_BREWFILE" ]] && rm -f "$SELECTED_BREWFILE"
 
 # Accept Xcode license with agreement
 sudo xcodebuild -license accept || true
