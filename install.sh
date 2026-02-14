@@ -32,6 +32,20 @@ run_script() {
 # Check if sudo is available
 sudo -v || { echo "${_MSG[sudo_failed]}"; exit 1; }
 
+# Ask user to skip password prompts during setup
+SUDOERS_TMP="/etc/sudoers.d/dotfiles_nopasswd"
+read -q "response?${_MSG[nopasswd_prompt]}"
+echo
+if [ "$response" = "y" ]; then
+  echo "$USER ALL=(ALL) NOPASSWD: ALL" | sudo tee "$SUDOERS_TMP" > /dev/null
+  sudo chmod 0440 "$SUDOERS_TMP"
+  if ! sudo visudo -c -f "$SUDOERS_TMP" 2>/dev/null; then
+    sudo rm -f "$SUDOERS_TMP"
+  else
+    echo "${_MSG[nopasswd_enabled]}"
+  fi
+fi
+
 # Start sudo keep-alive in the background
 # -n: non-interactive (never prompt), avoids blocking in background
 # kill -0 "$$": exit loop when parent script finishes
@@ -41,8 +55,15 @@ SUDO_PID=$!
 # Keep system awake in the background
 caffeinate -dim -w $SUDO_PID &
 
-# Kill sudo keep-alive on exit
-trap "kill $SUDO_PID 2>/dev/null" EXIT
+# Cleanup on exit
+cleanup() {
+  kill $SUDO_PID 2>/dev/null
+  if [ -f "$SUDOERS_TMP" ]; then
+    sudo rm -f "$SUDOERS_TMP"
+    echo "${_MSG[nopasswd_removed]}"
+  fi
+}
+trap cleanup EXIT
 
 # List of scripts to be run
 scripts=(

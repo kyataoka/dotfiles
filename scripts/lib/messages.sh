@@ -11,6 +11,9 @@ _load_ja() {
   _MSG[exit]="終了します..."
   _MSG[failed_to_run]="実行に失敗しました: %s"
   _MSG[sudo_failed]="sudo認証に失敗しました"
+  _MSG[nopasswd_prompt]="セットアップ中のパスワード入力をスキップしますか？（一時的にsudoのパスワードを無効化します。セットアップ完了後に自動で元に戻ります） (y/n) "
+  _MSG[nopasswd_enabled]="一時的なNOPASSWD設定を有効にしました"
+  _MSG[nopasswd_removed]="一時的なNOPASSWD設定を削除しました"
   _MSG[restart_prompt]="システムを再起動しますか？ (y/n) "
 
   # config.sh
@@ -48,6 +51,9 @@ _load_en() {
   _MSG[exit]="Exiting..."
   _MSG[failed_to_run]="Failed to run %s"
   _MSG[sudo_failed]="sudo authentication failed"
+  _MSG[nopasswd_prompt]="Skip password prompts during setup? (Temporarily disables sudo password. Will be reverted automatically after setup.) (y/n) "
+  _MSG[nopasswd_enabled]="Temporary NOPASSWD setting enabled"
+  _MSG[nopasswd_removed]="Temporary NOPASSWD setting removed"
   _MSG[restart_prompt]="Do you want to restart the system now? (y/n) "
 
   # config.sh
