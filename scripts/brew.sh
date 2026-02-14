@@ -6,11 +6,9 @@ source "$ROOT_DIR/scripts/lib/messages.sh"
 
 source ~/.zshrc || true
 
-SELECTED_BREWFILE="$ROOT_DIR/.brewfile_selected"
-
 brew update
 
-brewfile="$ROOT_DIR/files/brew/Brewfile"
+brewfile="$BREWFILE"
 if [[ -f "$SELECTED_BREWFILE" ]]; then
   brewfile="$SELECTED_BREWFILE"
 fi

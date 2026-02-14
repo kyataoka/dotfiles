@@ -63,9 +63,6 @@ if [[ "$response" == "y" || ! -f "$new_config_file" ]]; then
 fi
 
 # パッケージ選択
-BREWFILE="$ROOT_DIR/files/brew/Brewfile"
-SELECTED_BREWFILE="$ROOT_DIR/.brewfile_selected"
-
 echo ""
 if read -q "select_packages?${_MSG[select_packages]}"; then
   echo ""

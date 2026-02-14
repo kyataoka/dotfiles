@@ -37,15 +37,15 @@ defaults write -g com.apple.sound.beep.sound -string "/System/Library/Sounds/Fun
 ###############################################################################
 
 # Set computer name
-computer_name=$(awk -F ' = ' '/^\[name\]/{f=1} f==1&&/^computer_name/{gsub(/"/, "", $2); print $2; f=0}' $CONFIG_FILE)
+computer_name=$(read_config "name" "computer_name")
 sudo scutil --set ComputerName "$computer_name"
 
 # Set hostname
-hostname=$(awk -F ' = ' '/^\[name\]/{f=1} f==1&&/^hostname/{gsub(/"/, "", $2); print $2; f=0}' $CONFIG_FILE)
+hostname=$(read_config "name" "hostname")
 sudo scutil --set HostName "$hostname"
 
 # Set local hostname
-local_hostname=$(awk -F ' = ' '/^\[name\]/{f=1} f==1&&/^local_hostname/{gsub(/"/, "", $2); print $2; f=0}' $CONFIG_FILE)
+local_hostname=$(read_config "name" "local_hostname")
 sudo scutil --set LocalHostName "$local_hostname"
 
 # Set file sharing to ON
@@ -156,43 +156,11 @@ fi
 
 dockutil --remove all --no-restart
 # Add applications to dock
-applications=(
-  "/System/Applications/Apps.app"
-  "/System/Applications/Mission Control.app"
-  "/System/Applications/iPhone Mirroring.app"
-  "/Applications/Claude.app"
-  "/Applications/ChatGPT.app"
-  "/Applications/DeepL.app"
-  "/System/Applications/Home.app"
-  "/Applications/Google Chrome.app"
-  "/Applications/Safari.app"
-  "/Applications/Discord.app"
-  "/Applications/LINE.app"
-  "/System/Applications/Messages.app"
-  "/System/Applications/Mail.app"
-  "/System/Applications/Maps.app"
-  "/System/Applications/Photos.app"
-  "/System/Applications/Calendar.app"
-  "/System/Applications/Notes.app"
-  "/System/Applications/Reminders.app"
-  "/System/Applications/TV.app"
-  "/System/Applications/Music.app"
-  "/System/Applications/App Store.app"
-  "/System/Applications/Utilities/Terminal.app"
-  "/System/Applications/System Settings.app"
-  "/Applications/Visual Studio Code.app"
-  "/Applications/Xcode.app"
-  "/Applications/Xcode.app/Contents/Developer/Applications/Simulator.app"
-  "/Applications/Xcode.app/Contents/Applications/FileMerge.app"
-  "/Applications/Parallels Desktop.app"
-  "/Applications/RemotePlay.app"
-  "/Applications/Minecraft.app"
-  "/Applications/1Password.app"
-  "/System/Applications/Utilities/Screen Sharing.app"
-  "/Applications/AppCleaner.app"
-  "/Applications/Windows App.app"
-  "/Applications/BambuStudio.app"
-)
+applications=()
+while IFS= read -r line; do
+  [[ -z "$line" ]] && continue
+  applications+=("$line")
+done < "$ROOT_DIR/files/dock/apps.txt"
 position=1
 for app in "${applications[@]}"; do
   # if app exists add it to the dock
