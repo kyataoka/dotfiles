@@ -42,3 +42,8 @@ export PATH="$JAVA_HOME/bin:$PATH"
 
 # cocoapods
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/kataokahiroki/.lmstudio/bin"
+# End of LM Studio CLI section
+
