@@ -208,6 +208,9 @@ defaults -currentHost write com.apple.screensaver idleTime -int 0
 # Set display sleep to never
 sudo pmset -a displaysleep 0
 
+# Set disk sleep to never
+sudo pmset -a disksleep 0
+
 ###############################################################################
 # Status Menu settings
 ###############################################################################
